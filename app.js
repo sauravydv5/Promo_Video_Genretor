@@ -9,7 +9,10 @@ const app = express();
 // ✅ CORS only once
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://willowy-paletas-6ae5c1.netlify.app",
+    ],
     credentials: true,
   })
 );
