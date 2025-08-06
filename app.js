@@ -1,17 +1,30 @@
 const express = require("express");
 const connectDB = require("./src/config/db");
-const router = require("./src/routers/mediaRoutes");
+const mediaRoutes = require("./src/routers/mediaRoutes");
+const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
-app.use("/", (req, res) => {
-  res.send("Server Running...");
-});
-
-const PORT = process.env.PORT || 3000;
+// ✅ CORS only once
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
-app.use("/api/media", router);
+
+// ✅ Serve static folders (important for frontend preview!)
+app.use("/processed", express.static(path.join(__dirname, "processed")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/output", express.static(path.join(__dirname, "output")));
+
+// ✅ Register media routes
+app.use("/api/media", mediaRoutes);
+
+const PORT = process.env.PORT || 4001;
 
 connectDB()
   .then(() => {

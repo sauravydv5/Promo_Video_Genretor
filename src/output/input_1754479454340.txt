@@ -1,0 +1,10 @@
+file 'D:/Video_Genrator/Backend/src/processed/template_output.jpg'
+duration 3
+file 'D:/Video_Genrator/Backend/src/assets/Freestyle.jpg'
+duration 3
+file 'D:/Video_Genrator/Backend/src/assets/Battery.jpg'
+duration 3
+file 'D:/Video_Genrator/Backend/src/assets/4K.jpg'
+duration 3
+file 'D:/Video_Genrator/Backend/src/assets/Display.jpg'
+duration 3
