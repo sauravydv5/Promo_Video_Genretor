@@ -22,7 +22,7 @@ const insertImageIntoTemplate = async (
     const resizedImageBuffer = await sharp(uploadPath)
       .rotate()
       .resize({
-        width: 300,
+        width: 250,
         height: 300,
         fit: "contain",
         background: { r: 255, g: 255, b: 255, alpha: 0 },
@@ -30,7 +30,7 @@ const insertImageIntoTemplate = async (
       .toBuffer();
 
     await sharp(templatePath)
-      .composite([{ input: resizedImageBuffer, top: 320, left: 50 }])
+      .composite([{ input: resizedImageBuffer, top: 380, left: 105 }])
       .toFile(outputPath);
 
     console.log(`✅ Image inserted into template: ${outputPath}`);
