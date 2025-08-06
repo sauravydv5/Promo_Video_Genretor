@@ -25,7 +25,7 @@ app.use("/assets", express.static(path.join(__dirname, "assets")));
 app.use("/output", express.static(path.join(__dirname, "output")));
 
 // ✅ Register media routes
-app.use("/api/media", mediaRoutes);
+app.use("/", mediaRoutes);
 
 const PORT = process.env.PORT || 4001;
 
